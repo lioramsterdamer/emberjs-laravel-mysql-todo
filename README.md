@@ -1,6 +1,6 @@
 # emberjs-laravel-mysql-todo
 ## Description
-Todo list with basic CRUD functionality, using [Ember](https://emberjs.com), [Laravel](https://laravel.com) and [MySQL](https://www.mysql.com).
+A Hebrew to-do (task) list with basic CRUD functionality, using [Ember](https://emberjs.com), [Laravel](https://laravel.com) and [MySQL](https://www.mysql.com).
 
 ## How to run on localhost (Windows)
  1. Make sure you have [PHP](https://php.net), [Node.js](https://nodejs.org), [Composer](https://getcomposer.org), [Ember](https://emberjs.com) and a [MySQL](https://www.mysql.com) server installed on your computer.
