@@ -1,0 +1,13 @@
+<div class="task {{if task.done "done" "todo"}}">
+  <span class="task-mark" {{action "toggle"}}></span>
+  <span class="task-title">
+    <span class="index">{{add index 1}}.&nbsp;</span>
+    {{#if editTitle}}
+      <input value={{task.title}} onkeydown={{action "editTitleDone"}} />
+    {{else}}
+      <span {{action "editTitle"}}>{{task.title}}</span>
+    {{/if}}
+  </span>
+  <span class="task-del" {{action "deleteTask"}}>×</span>
+</div>
+{{yield}}

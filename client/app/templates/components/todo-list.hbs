@@ -1,0 +1,32 @@
+<div class="tasks-ctr {{if displayNewTask "add-panel" "list-panel"}}">
+  {{#if displayNewTask}}
+    <div class="titlebar">
+      <h1 class="title">משימה חדשה</h1>
+    </div>
+    <div class="add-form">
+      <form onsubmit={{action "newTaskAdd"}}>
+        <textarea class="new-task-title" rows="3" placeholder="תיאור המשימה" required></textarea>
+        <button type="submit">הוספה</button>
+        <button {{action "newTaskCancel"}}>ביטול</button>
+      </form>
+    </div>
+  {{else}}
+    <div class="titlebar">
+      <h1 class="title">משימות</h1>
+      <button class="plus-btn" {{action "newTaskDisplay"}}>+</button>
+    </div>
+    <div class="list">
+      {{#each model.tasks as |task index|}}
+        {{#unless task.isDeleted}}
+          {{todo-item task=task index=index editTitle=false tasks=model.tasks}}
+        {{/unless}}
+      {{/each}}
+    </div>
+    <div class="statusbar">
+      <span>לסיום: <strong>{{model.todo}}</strong></span>
+      <span>הושלמו: <strong>{{model.done}}</strong></span>
+      <span>סה"כ: <strong>{{model.total}}</strong></span>
+    </div>
+  {{/if}}
+</div>
+{{yield}}
