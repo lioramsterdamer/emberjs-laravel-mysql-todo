@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapTasksRoutes();
+
         //
     }
 
@@ -76,5 +78,20 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "tasks" routes for the application.
+     *
+     * These routes are used for tasks database CRUD actions.
+     *
+     * @return void
+     */
+    protected function mapTasksRoutes()
+    {
+        Route::prefix('api/tasks')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/tasks.php'));
     }
 }
