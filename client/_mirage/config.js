@@ -1,6 +1,6 @@
 
-export default function() {
-   
+export default function () {
+
   // These comments are here to help you get started. Feel free to delete them.
   /*
     Config (with defaults).
@@ -12,33 +12,33 @@ export default function() {
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
   const dev = false;
 
-  if ( dev ) {
-    function task(id,title,done) {
+  if (dev) {
+    function task(id, title, done) {
       return {
-        type  : 'tasks',
-        id    : id,
+        type: 'tasks',
+        id: id,
         attributes: {
-          title : title,
-          done  : done
+          title: title,
+          done: done
         }
       }
     }
 
     let data = [
-      task(1,'Task #1',false),
-      task(2,'Task #2',false),
-      task(3,'Task #3',true )
+      task(1, 'Task #1', false),
+      task(2, 'Task #2', false),
+      task(3, 'Task #3', true)
     ]
-    this.get('/tasks', function() {
+    this.get('/tasks', function () {
       return {
-        data : data
+        data: data
       };
     });
 
-    this.post('/tasks', function({ contacts }, request) {
+    this.post('/tasks', function ({ contacts }, request) {
       let attrs = this.normalizedRequestAttrs();
       console.log(attrs);
-      data.push(task(2,attrs.title,attrs.done));
+      data.push(task(2, attrs.title, attrs.done));
       return 201;
     });
   }
